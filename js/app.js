@@ -1,60 +1,52 @@
 export default function App() {
     // let pokeapi;
     fetch('https://pokeapi.co/api/v2/pokemon/1').then(r => r.json())
-    .then(r => {
-        //images
-        const front = document.getElementById('front'),
-        back = document.getElementById('back'),
-        //nome e tipo
-        name = document.getElementById('name'),
-        types = document.getElementById('types'),
-        //stats
-        healthNumber = document.getElementById('health-number'),
-        healthBar = document.getElementById('health'),
-        attackNumber = document.getElementById('attack-number'),
-        attackBar = document.getElementById('attack'),
-        spattackNumber = document.getElementById('spattack-number'),
-        spattackBar = document.getElementById('spattack'),
-        defenseNumber = document.getElementById('defense-number'),
-        defenseBar = document.getElementById('defense'),
-        spdefenseNumber = document.getElementById('spdefense-number'),
-        spdefenseBar = document.getElementById('spdefense'),
-        speedNumber = document.getElementById('speed-number'),
-        speedBar = document.getElementById('speed');
+        .then(r => {
+            //images
+            const front = document.getElementById('front'),
+                back = document.getElementById('back'),
+                //nome e tipo
+                name = document.getElementById('name'),
+                types = document.getElementById('types'),
+                //stats
+                healthNumber = document.getElementById('health-number'),
+                healthBar = document.getElementById('health'),
+                attackNumber = document.getElementById('attack-number'),
+                attackBar = document.getElementById('attack'),
+                spattackNumber = document.getElementById('spattack-number'),
+                spattackBar = document.getElementById('spattack'),
+                defenseNumber = document.getElementById('defense-number'),
+                defenseBar = document.getElementById('defense'),
+                spdefenseNumber = document.getElementById('spdefense-number'),
+                spdefenseBar = document.getElementById('spdefense'),
+                speedNumber = document.getElementById('speed-number'),
+                speedBar = document.getElementById('speed');
 
-        function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
+            function capitalize(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            }
 
-        front.src = r.sprites.front_default;
-        back.src = r.sprites.back_default;
+            front.src = r.sprites.front_default;
+            back.src = r.sprites.back_default;
 
-        name.innerText = capitalize(r.name);
+            name.innerText = capitalize(r.name);
 
-        for(let i = 0; i < r.types.length; i++) {
-            let tipos = document.createElement('li');
-            tipos.innerText = capitalize(r.types[i].type.name);
-            types.appendChild(tipos);
-        }
+            for (let i = 0; i < r.types.length; i++) {
+                let tipos = document.createElement('li');
+                tipos.innerText = capitalize(r.types[i].type.name);
+                types.appendChild(tipos);
+            }
 
-        //vida
-        healthNumber.innerText = r.stats[0].base_stat;
-        healthBar.style.width = `${healthBar.parentElement.offsetWidth * (r.stats[0].base_stat / 100)}px`;
-        console.log(healthBar.parentElement.offsetWidth * (r.stats[0].base_stat / 100))
-        //ataque
-        attackNumber.innerText = r.stats[1].base_stat;
-        attackBar.style.width = `${attackBar.parentElement.offsetWidth * (r.stats[0].base_stat / 100)}px`;
-        //sp ataque
-        spattackNumber.innerText = r.stats[3].base_stat;
-        spattackBar.style.width = `${spattackBar.parentElement.offsetWidth * (r.stats[0].base_stat / 100)}px`;
-        //defesa
-        defenseNumber.innerText = r.stats[2].base_stat;
-        defenseBar.style.width = `${defenseBar.parentElement.offsetWidth * (r.stats[0].base_stat / 100)}px`;
-        //sp defesa
-        spdefenseNumber.innerText = r.stats[4].base_stat;
-        spdefenseBar.style.width = `${spdefenseBar.parentElement.offsetWidth * (r.stats[0].base_stat / 100)}px`;
-        //velocidade
-        speedNumber.innerText = r.stats[5].base_stat;
-        speedBar.style.width = `${speedBar.parentElement.offsetWidth * (r.stats[0].base_stat / 100)}px`;
-    })
+            function progressBar(valor, number, total) {
+                number.innerText = valor;
+                total.style.width = `${total.parentElement.offsetWidth * (valor / 100)}px`;
+            }
+
+            progressBar(r.stats[0].base_stat, healthNumber, healthBar);
+            progressBar(r.stats[1].base_stat, attackNumber, attackBar);
+            progressBar(r.stats[3].base_stat, spattackNumber, spattackBar);
+            progressBar(r.stats[2].base_stat, defenseNumber, defenseBar);
+            progressBar(r.stats[4].base_stat, spdefenseNumber, spdefenseBar);
+            progressBar(r.stats[5].base_stat, speedNumber, speedBar);
+        })
 }
