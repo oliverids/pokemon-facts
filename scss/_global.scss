@@ -3,6 +3,8 @@
 
 $roboto: 'Roboto', sans-serif;
 
+$red: #CF503F;
+
 %fontAwesome {
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
@@ -30,6 +32,9 @@ a {
     }
 }
 
+p, h1, h2, h3, span {
+    line-height: 1.5;
+}
 
 body {
     font-size: 16px;
@@ -48,18 +53,15 @@ button {
     cursor: pointer;
 }
 
-// h1 {
-//     font-size: 32px;
-//     font-weight: 700;
-//     line-height: 2;
-// }
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
 
-// h2 {
-//     font-size: 20px;
-//     font-weight: 500;
-//     line-height: 1.5;
-//     margin-bottom: 20px;
-// }
+h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
 
 // h3 {
 //     font-size: 18px;

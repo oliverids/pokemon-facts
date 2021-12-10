@@ -1,0 +1,127 @@
+article {
+    padding-top: 110px;
+
+    .container {
+        .main {
+            width: 100%;
+
+            //SEARCHBAR
+            .searchbar {
+                background: var(--searchbar);
+                padding: 4px 10px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 36px;
+
+                input {
+                    background: none;
+                    border: none;
+                    font-size: 1rem;
+                    font-family: $roboto;
+                    width: calc(100% - 48px);
+                    align-self: stretch;
+                    padding-left: 12px;
+                }
+
+                #search {
+                    width: 48px;
+                    height: 48px;
+                    padding: 8px;
+                    position: relative;
+
+                    &::before {
+                        @extend %fontAwesome;
+                        content: "\f002";
+                        display: block;
+                        font-size: 1.2rem;
+                        color: #031e37;
+                    }
+
+                    span {
+                        position: absolute;
+                        left: -99999px;
+                    }
+                }
+            }
+
+            //INFO
+            #info {
+                .infodiv {
+                    margin-bottom: 2rem;
+
+                    // &:last-child {
+                    //     margin-bottom: 0;
+                    // }
+                }
+
+                .spantitle {
+                    display: block;
+                    font-size: 1.1rem;
+                    margin-bottom: 0.6rem;
+                }
+
+                //IMAGENS
+                .images {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+
+                    img {
+                        width: 200px;
+                        height: 200px;
+
+                        &:first-child {
+                            margin-bottom: 1rem;
+                        }
+                    }
+                }
+
+                //NOME E TIPO
+                .nome-type {
+                    display: flex;
+                    flex-direction: column;
+
+                    .nome {
+                        margin-bottom: 1.2rem;
+                    }
+                }
+
+                //STATS
+                .stats {
+                    .progress {
+                        .stat {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 1rem;
+
+                            h2 {
+                                white-space: nowrap;
+                            }
+
+                            .bar {
+                                height: 16px;
+                                width: 100%;
+                                background: #d6e1ee;
+                                border-radius: 18px;
+                                overflow: hidden;
+                                margin: 0 16px;
+
+                                .valor {
+                                    height: 100%;
+                                    width: 1px;
+                                    background: $red;
+                                    border-radius: 18px;
+                                    transition: width .4s ease-in-out;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
