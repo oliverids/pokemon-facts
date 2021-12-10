@@ -1,6 +1,5 @@
-export default function App() {
-    // let pokeapi;
-    fetch('https://pokeapi.co/api/v2/pokemon/1').then(r => r.json())
+export default function App(pokemon) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`).then(r => r.json())
         .then(r => {
             //images
             const front = document.getElementById('front'),
@@ -22,12 +21,15 @@ export default function App() {
                 speedNumber = document.getElementById('speed-number'),
                 speedBar = document.getElementById('speed');
 
+            types.innerHTML = '';
+
             function capitalize(str) {
                 return str.charAt(0).toUpperCase() + str.slice(1);
             }
 
             front.src = r.sprites.front_default;
             back.src = r.sprites.back_default;
+            r.sprites.back_default ? back.src = r.sprites.back_default : back.style.display = 'none';
 
             name.innerText = capitalize(r.name);
 
@@ -39,7 +41,8 @@ export default function App() {
 
             function progressBar(valor, number, total) {
                 number.innerText = valor;
-                total.style.width = `${total.parentElement.offsetWidth * (valor / 100)}px`;
+                total.style.width = `${(100 * valor) / total.parentElement.offsetWidth}%`;
+                // console.log((100 * valor) / total.parentElement.offsetWidth)
             }
 
             progressBar(r.stats[0].base_stat, healthNumber, healthBar);

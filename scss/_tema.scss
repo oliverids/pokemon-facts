@@ -2,24 +2,32 @@
     //geral
     --body: #fff;
     --texto: #010a11;
-    
+
     //header
     --header: #3d7dca;
     --btnheader: #031a2f;
+    --aside: #2a6ab7;
 
     //searchbar
     --searchbar: #ffeeaf;
+
+    //info
+    --sombra: rgba(0, 0, 0, .2);
 }
 
 .escuro {
     //geral
     --body: #031e37;
-    --texto: #c2e3ff;
+    --texto: #eaf4fc;
 
     //header
     --header: #003a70;
     --btnheader: #bac4ce;
+    --aside: #0a2f50;
 
     //searchbar
     --searchbar: #fbde6e;
+
+    //info
+    --sombra: rgba(255, 255, 255, .2);
 }

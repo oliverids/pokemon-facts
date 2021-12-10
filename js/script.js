@@ -1,5 +1,7 @@
 import App from './app.js';
-App();
+import Randomize from './randomize.js';
+Randomize();
+App('bulbasaur');
 
 const theme = document.getElementById('theme');
 theme.addEventListener('click', () => {
@@ -7,7 +9,12 @@ theme.addEventListener('click', () => {
     theme.classList.toggle('ativo');
 })
 
-const menu = document.getElementById('menu');
+const menu = document.getElementById('menu'),
+    aside = document.getElementById('aside'),
+    random = document.getElementById('random');
+
 menu.addEventListener('click', () => {
-    menu.classList.toggle('ativo')
-})
+    [menu, aside].forEach(e => e.classList.toggle('ativo'));
+});
+
+random.addEventListener('click', Randomize)
