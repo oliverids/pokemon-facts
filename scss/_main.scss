@@ -59,7 +59,7 @@ article {
                 .spantitle {
                     display: block;
                     font-size: 1.1rem;
-                    margin-bottom: 0.6rem;
+                    margin-bottom: 0.8rem;
                 }
 
                 //IMAGENS
@@ -84,8 +84,22 @@ article {
                     display: flex;
                     flex-direction: column;
 
-                    .nome {
-                        margin-bottom: 1.2rem;
+                    .type {
+                        margin-top: 1.2rem;
+
+                        #types {
+                            display: flex;
+                            align-items: center;
+                            flex-wrap: wrap;
+
+                            li {
+                                border-radius: 4px;
+                                padding: 10px;
+                                background: $red;
+                                color: #fff;
+                                margin: 0 10px 10px 0;
+                            }
+                        }
                     }
                 }
 

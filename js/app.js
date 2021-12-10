@@ -1,6 +1,6 @@
 export default function App() {
     // let pokeapi;
-    fetch('https://pokeapi.co/api/v2/pokemon/25').then(r => r.json())
+    fetch('https://pokeapi.co/api/v2/pokemon/1').then(r => r.json())
     .then(r => {
         //images
         const front = document.getElementById('front'),
@@ -22,14 +22,20 @@ export default function App() {
         speedNumber = document.getElementById('speed-number'),
         speedBar = document.getElementById('speed');
 
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
         front.src = r.sprites.front_default;
         back.src = r.sprites.back_default;
 
-        name.innerText = r.name;
+        name.innerText = capitalize(r.name);
 
-        let tipos = document.createElement('li');
-        tipos.innerText = r.types[0].type.name;
-        types.appendChild(tipos);
+        for(let i = 0; i < r.types.length; i++) {
+            let tipos = document.createElement('li');
+            tipos.innerText = capitalize(r.types[i].type.name);
+            types.appendChild(tipos);
+        }
 
         //vida
         healthNumber.innerText = r.stats[0].base_stat;
