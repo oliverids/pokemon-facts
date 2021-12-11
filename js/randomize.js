@@ -17,12 +17,13 @@ export default function Randomize() {
             })
     }
 
-    for (let i = 1; i < 9; i++) {
+    for (let i = 1; i < 11; i++) {
         getRandomNumber(1, 900);
     }
 
     setTimeout(() => {
-        if(randomlist.childElementCount !== 8) {
+        if (randomlist.childElementCount !== 10) {
+            randomlist.innerHTML = '';
             getRandomNumber(1, 900);
         } else {
             let randomPokemons = randomlist.querySelectorAll('li');

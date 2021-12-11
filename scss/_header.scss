@@ -4,11 +4,14 @@ header {
     width: 100%;
     padding: 1rem;
     background-color: var(--header);
-    box-shadow: 0 0 10px rgba($color: #000000, $alpha: .2);
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
     z-index: 8000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     #logo {
         max-width: 100px;
@@ -28,25 +31,45 @@ header {
 
             &::before {
                 @extend %fontAwesome;
-                content: '\f186';
+                content: "\f186";
                 display: block;
                 font-size: 1.6rem;
                 color: var(--btnheader);
             }
 
+            @media only screen and (min-width: 1100px) {
+                display: flex;
+                align-items: center;
+                width: 150px;
+                font-size: 1.2rem;
+                font-family: $roboto;
+                font-weight: 700;
+            }
+
             span {
                 position: absolute;
                 left: -99999px;
+                color: var(--btnheader);
+
+                @media only screen and (min-width: 1100px) {
+                    margin-left: 12px;
+                    margin-top: 3px;
+                    position: static;
+                }
             }
 
             &.ativo {
-                box-shadow: inset 0 -35px 11px rgba(0, 0, 0, .15);
+                box-shadow: inset 0 -35px 11px rgba(0, 0, 0, 0.15);
             }
         }
 
         #menu {
             width: 44px;
             height: 44px;
+
+            @media only screen and (min-width: 1100px) {
+                display: none;
+            }
 
             div {
                 width: 30px;
@@ -80,7 +103,7 @@ header {
                 }
             }
 
-            &.ativo{
+            &.ativo {
                 div {
                     transform: translateX(-50px);
                     background: transparent;
@@ -92,7 +115,6 @@ header {
                         transform: rotate(-45deg) translate(35px, 35px);
                     }
                 }
-                
             }
         }
     }

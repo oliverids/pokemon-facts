@@ -4,11 +4,16 @@ article {
     .container {
         flex-direction: column;
 
+        @media only screen and (min-width: 768px) {
+            flex-direction: row;
+        }
+
         .main {
             width: 100%;
 
             //SEARCHBAR
             .searchbar {
+                max-width: 660px;
                 background: var(--searchbar);
                 padding: 4px 10px;
                 border-radius: 4px;
@@ -50,12 +55,12 @@ article {
 
             //INFO
             #info {
+                @media only screen and (min-width: 768px) {
+                    max-width: 660px;
+                }
+
                 .infodiv {
                     margin-bottom: 2rem;
-
-                    // &:last-child {
-                    //     margin-bottom: 0;
-                    // }
                 }
 
                 .spantitle {
@@ -67,9 +72,15 @@ article {
                 //IMAGENS
                 .images {
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     flex-wrap: wrap;
+
+                    @media only screen and (min-width: 768px) {
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
 
                     img {
                         width: 200px;
@@ -78,6 +89,15 @@ article {
 
                         &:first-child {
                             margin-bottom: 1rem;
+
+                            @media only screen and (min-width: 768px) {
+                                margin-bottom: 0;
+                            }
+                        }
+
+                        @media only screen and (min-width: 768px) {
+                            width: 300px;
+                            height: 300px;
                         }
                     }
                 }
@@ -86,6 +106,15 @@ article {
                 .nome-type {
                     display: flex;
                     flex-direction: column;
+
+                    @media only screen and (min-width: 768px) {
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        .nome, .type {
+                            width: 300px;
+                        }
+                    }
 
                     .type {
                         margin-top: 1.2rem;
@@ -108,6 +137,7 @@ article {
 
                 //STATS
                 .stats {
+
                     .progress {
                         .stat {
                             display: flex;
@@ -140,6 +170,8 @@ article {
                 }
 
                 .list {
+                    max-width: 575px;
+
                     li {
                         margin-bottom: 2rem;
 
@@ -154,9 +186,9 @@ article {
 
                             &::before {
                                 @extend %fontAwesome;
-                                content: '\f0da';
+                                content: "\f0da";
                                 margin-right: 8px;
-                                color: #E1B200;
+                                color: #e1b200;
                             }
                         }
 
@@ -177,7 +209,7 @@ article {
             height: 100vh;
             right: 0;
             top: 70px;
-            width: 80%;
+            max-width: 300px;
             background: var(--aside);
             padding: 2.4rem 2rem 2rem 2rem;
             display: flex;
@@ -188,6 +220,17 @@ article {
             visibility: hidden;
             transition: all 0.3s ease-in-out;
             z-index: 7999;
+
+            @media only screen and (min-width: 1100px) {
+                position: static;
+                height: 660px;
+                background: none;
+                padding: 1rem 2rem 2rem 2rem;
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: .05);
+            }
 
             &.ativo {
                 transform: translateX(0);
@@ -221,6 +264,23 @@ article {
                 justify-content: space-between;
                 flex-wrap: wrap;
                 padding: 16px 0;
+
+                @media only screen and (min-width: 1100px) {
+                    height: 100%;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 10px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: rgba(0, 0, 0, 0.2);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: var(--aside);
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                }
 
                 li {
                     margin-bottom: 14px;
