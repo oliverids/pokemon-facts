@@ -26,11 +26,8 @@ export default function App(pokemon) {
 
 
             //reset
-            function resetChildren(e) {
-                e.innerHTML = ''
-            }
-            [types,skillList, movesList].forEach(resetChildren)
-            // types.innerHTML = '';
+            function resetChildren(e) { e.innerHTML = '' };
+            [types, skillList, movesList].forEach(resetChildren);
 
             function capitalize(str) {
                 return str.charAt(0).toUpperCase() + str.slice(1);
@@ -61,7 +58,7 @@ export default function App(pokemon) {
             progressBar(r.stats[2].base_stat, defenseNumber, defenseBar);
             progressBar(r.stats[4].base_stat, spdefenseNumber, spdefenseBar);
             progressBar(r.stats[5].base_stat, speedNumber, speedBar);
-            
+
             //skills list
             for (let i = 0; i < 2; i++) {
                 if (i !== r.abilities.length) {
@@ -76,14 +73,46 @@ export default function App(pokemon) {
                         .then(r => {
                             efeito.innerText = r.effect_entries[1].effect.replace(/(?:\r\n|\r|\n)/g, ' ');
                             shortEfeito.innerText = capitalize(r.effect_entries[1].short_effect)
-                        })
+                        });
 
                     function append(e) {
                         item.append(e)
                     }
 
-                    [titulo, efeito, shortEfeito].forEach(append)
-                    skillList.appendChild(item)
+                    [titulo, efeito, shortEfeito].forEach(append);
+                    skillList.appendChild(item);
+                } else { break }
+            }
+
+            //moves list
+            console.log(r.moves)
+            for (let i = 0; i < 4; i++) {
+                if (i !== r.moves.length) {
+                    let item = document.createElement('li'),
+                        titulo = document.createElement('h2'),
+                        move = document.createElement('p'),
+                        shortmove = document.createElement('p'),
+                        accuracy = document.createElement('h3'),
+                        damage = document.createElement('h3');
+
+                    titulo.innerText = r.moves[i].move.name.split(' ').map(capitalize).join(' ');
+
+                    fetch(r.moves[i].move.url).then(r => r.json())
+                        .then(r => {
+                            move.innerText = r.effect_entries[0].effect.replace(/(?:\r\n|\r|\n)/g, ' ');
+                            shortmove.innerText = capitalize(r.effect_entries[0].short_effect);
+
+                            accuracy.innerText = `Accuracy: ${r.accuracy}`;
+                            damage.innerText = `Damage Class: ${capitalize(r.damage_class.name)}`;
+                        });
+
+                    function append(e) {
+                        item.append(e)
+                    }
+
+                    [titulo, move, shortmove, accuracy, damage].forEach(append)
+                    movesList.appendChild(item)
+
                 } else { break }
             }
         })
