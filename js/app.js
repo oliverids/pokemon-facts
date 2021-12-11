@@ -85,7 +85,6 @@ export default function App(pokemon) {
             }
 
             //moves list
-            console.log(r.moves)
             for (let i = 0; i < 4; i++) {
                 if (i !== r.moves.length) {
                     let item = document.createElement('li'),

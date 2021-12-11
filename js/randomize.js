@@ -22,13 +22,17 @@ export default function Randomize() {
     }
 
     setTimeout(() => {
-        let randomPokemons = randomlist.querySelectorAll('li');
+        if(randomlist.childElementCount !== 8) {
+            getRandomNumber(1, 900);
+        } else {
+            let randomPokemons = randomlist.querySelectorAll('li');
 
-        randomPokemons.forEach(each => {
-            each.addEventListener('click', e => {
-                App(each.querySelector('img').alt);
-                [document.getElementById('aside'), document.getElementById('menu')].forEach(e => e.classList.remove('ativo'))
+            randomPokemons.forEach(each => {
+                each.addEventListener('click', e => {
+                    App(each.querySelector('img').alt);
+                    [document.getElementById('aside'), document.getElementById('menu')].forEach(e => e.classList.remove('ativo'))
+                })
             })
-        })
+        }
     }, 1200);
 }
