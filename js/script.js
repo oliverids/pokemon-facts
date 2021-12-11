@@ -1,7 +1,6 @@
 import App from './app.js';
 import Randomize from './randomize.js';
 Randomize();
-App('bulbasaur');
 
 const theme = document.getElementById('theme');
 theme.addEventListener('click', () => {
@@ -17,4 +16,20 @@ menu.addEventListener('click', () => {
     [menu, aside].forEach(e => e.classList.toggle('ativo'));
 });
 
-random.addEventListener('click', Randomize)
+random.addEventListener('click', Randomize);
+
+const info = document.getElementById('info'),
+    emptyspace = document.getElementById('emptyspace');
+
+const input = document.getElementById('input'),
+    search = document.getElementById('search');
+search.addEventListener('click', () => {
+    let keyword = input.value;
+    info.classList.add('show');
+    emptyspace.classList.add('hide');
+    App(keyword);
+});
+
+window.addEventListener('keyup', e => {
+    if (e.keyCode == 13) search.click();
+});

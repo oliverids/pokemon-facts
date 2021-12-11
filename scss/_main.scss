@@ -10,6 +10,26 @@ article {
 
         .main {
             width: 100%;
+            position: relative;
+
+            #emptyspace {
+                position: fixed;
+                width: 320px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                color: var(--texto);
+                opacity: .4;
+
+                i {
+                    font-size: 3rem;
+                    margin: 0 auto 1rem auto;
+                }
+
+                &.hide {
+                    display: none;
+                }
+            }
 
             //SEARCHBAR
             .searchbar {
@@ -55,6 +75,18 @@ article {
 
             //INFO
             #info {
+                visibility: hidden;
+                overflow-y: hidden;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+
+                &.show {
+                    visibility: visible;
+                    overflow-y: visible;
+                    opacity: 1;
+                    transition: all 0.3s ease-in-out;
+                }
+
                 @media only screen and (min-width: 768px) {
                     max-width: 660px;
                 }
@@ -111,7 +143,8 @@ article {
                         flex-direction: row;
                         justify-content: space-between;
 
-                        .nome, .type {
+                        .nome,
+                        .type {
                             width: 300px;
                         }
                     }
@@ -137,7 +170,6 @@ article {
 
                 //STATS
                 .stats {
-
                     .progress {
                         .stat {
                             display: flex;
@@ -229,7 +261,7 @@ article {
                 transform: translateX(0);
                 opacity: 1;
                 visibility: visible;
-                box-shadow: 0 0 10px rgba($color: #000000, $alpha: .05);
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.05);
             }
 
             &.ativo {

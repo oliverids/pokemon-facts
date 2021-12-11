@@ -49,23 +49,23 @@ body {
     font-family: $roboto;
     background-color: var(--body);
     color: var(--texto);
-    transition: background-color .3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 
     &::-webkit-scrollbar {
         width: 15px;
     }
 
     &::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, .2);
+        background: rgba(0, 0, 0, 0.2);
     }
 
     &::-webkit-scrollbar-thumb {
         background: var(--body);
-        border: 1px solid rgba(0, 0, 0, .2);
+        border: 1px solid rgba(0, 0, 0, 0.2);
     }
 
     &.escuro * {
-        transition: background-color .3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
     }
 }
 
@@ -103,7 +103,7 @@ h2 {
 h3 {
     font-size: 1.05rem;
     font-weight: 500;
-    margin-bottom: .9rem;
+    margin-bottom: 0.9rem;
 
     &:last-child {
         margin-bottom: 0;
