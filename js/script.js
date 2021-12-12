@@ -21,8 +21,8 @@ random.addEventListener('click', Randomize);
 const input = document.getElementById('input'),
     search = document.getElementById('search');
 search.addEventListener('click', () => {
-    let keyword = input.value.toLowerCase();
-    App(keyword);
+    let keyword = input.value;
+    if (keyword) App(keyword.toLowerCase());
 });
 
 window.addEventListener('keyup', e => {

@@ -21,6 +21,10 @@ header {
         display: flex;
         align-items: center;
 
+        #theme, #menu div, #menu div::before, #menu div::after {
+            filter: drop-shadow(0 0 4px rgba(0, 0, 0, .15));
+        } 
+
         #theme {
             margin-right: 24px;
             width: 44px;
