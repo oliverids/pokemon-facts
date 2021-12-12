@@ -2,6 +2,8 @@
 
 PokéFacts é uma plataforma que consome os dados da API [PokéApi](https://pokeapi.co/about) para disponibilizar informações(como habilidades, ataques, localizações, entre outras) de mais de 1118 Pokémons.
 
+Este projeto é um redesign. A primeira e antiga pode ser acessada [nesse link](https://oliverids.github.io/pokefacts/).
+
 <p text-align="center">
  <a href="#desafio">O desafio</a> | 
  <a href="#tecnologias">Tecnologias</a> | 
