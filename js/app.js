@@ -42,7 +42,10 @@ export default function App(pokemon) {
                 spdefenseNumber = document.getElementById('spdefense-number'),
                 spdefenseBar = document.getElementById('spdefense'),
                 speedNumber = document.getElementById('speed-number'),
-                speedBar = document.getElementById('speed');
+                speedBar = document.getElementById('speed'),
+                //local list
+                localList = document.getElementById('locallist');
+
 
             //reset
             function resetChildren(e) { e.innerHTML = '' };
@@ -137,6 +140,36 @@ export default function App(pokemon) {
                         });
                 } else { break }
             }
+
+            fetch(`https://pokeapi.co/api/v2/pokemon/${r.id}/encounters`)
+                .then(r => r.json())
+                .then(r => {
+                    for (let i = 0; i < r.length; i++) {
+                        let item = document.createElement('li'),
+                            local = r[i].location_area.name.replaceAll('-', ' ').split(' ').map(capitalize).join(' ');
+                        item.innerHTML = `<h2>${local}</h2>`;
+
+                        let list = document.createElement('ul'),
+                            details = document.createElement('details');
+                        details.innerHTML = `<summary><h3>Encounter Methods</h3></summary>`;
+
+                        fetch(r[i].location_area.url).then(r => r.json())
+                            .then(r => {
+                                if (r.encounter_method_rates.length) {
+                                    for (let i = 0; i < r.encounter_method_rates.length; i++) {
+                                        let method = document.createElement('li');
+                                        method.innerText = r.encounter_method_rates[i].encounter_method.name.replaceAll('-', ' ').split(' ').map(capitalize).join(' ');
+
+                                        list.append(method);
+                                        details.append(list)
+                                        item.append(details)
+                                    }
+                                }
+                            })
+                        localList.appendChild(item)
+                    }
+                })
+
         })
         .then(() => {
             setTimeout(() => loader.classList.remove('show'), 1800);

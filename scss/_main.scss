@@ -18,13 +18,13 @@ article {
                 margin: -30px 0 1rem 0;
                 visibility: hidden;
                 opacity: 0;
-                transition: all .3s ease-in-out;
+                transition: all 0.3s ease-in-out;
 
                 &.ativo {
                     margin-top: -20px;
                     visibility: visible;
                     opacity: 1;
-                    transition: all .3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
                 }
             }
 
@@ -112,7 +112,7 @@ article {
                 }
 
                 .infodiv {
-                    margin-bottom: 2rem;
+                    margin-bottom: 2.4rem;
                 }
 
                 .spantitle {
@@ -251,6 +251,43 @@ article {
 
                             &:last-child {
                                 margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+
+                #locallist {
+                    li details {
+                        cursor: pointer;
+                        padding-left: 16px;
+
+                        summary {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: .8rem;
+
+                            &::before {
+                                @extend %fontAwesome;
+                                content: "\f0da";
+                                margin-right: 8px;
+                                color: $red;
+                            }
+
+                            &::marker {
+                                display: none;
+                            }
+                        }
+
+                        ul {
+                            margin-left: 32px;
+                            list-style-type: square;
+                            
+                            li {
+                                margin-bottom: 0.8rem;
+
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
                             }
                         }
                     }

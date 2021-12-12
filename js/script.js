@@ -1,7 +1,7 @@
 import App from './app.js';
 import Randomize from './randomize.js';
 Randomize();
-
+App('pikachu')
 const theme = document.getElementById('theme');
 theme.addEventListener('click', () => {
     document.body.classList.toggle('escuro');
