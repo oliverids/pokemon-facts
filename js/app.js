@@ -2,7 +2,23 @@ export default function App(pokemon) {
     const loader = document.getElementById('loader');
     loader.classList.add('show');
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`).then(r => r.json())
+    const erro = document.getElementById('erro'),
+        info = document.getElementById('info'),
+        emptyspace = document.getElementById('emptyspace');
+
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+        .then(r => {
+            if (!r.ok) {
+                erro.classList.add('ativo');
+                loader.classList.remove('show');
+                info.classList.remove('show');
+                emptyspace.classList.add('hide');
+            } else {
+                erro.classList.remove('ativo');
+                return r;
+            }
+        })
+        .then(r => r.json())
         .then(r => {
             //images
             const front = document.getElementById('front'),
@@ -123,5 +139,9 @@ export default function App(pokemon) {
         })
         .then(() => {
             setTimeout(() => loader.classList.remove('show'), 1800);
+            setTimeout(() => {
+                info.classList.add('show');
+                emptyspace.classList.add('hide');
+            }, 1200);
         })
 }

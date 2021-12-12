@@ -23,13 +23,6 @@ const input = document.getElementById('input'),
 search.addEventListener('click', () => {
     let keyword = input.value.toLowerCase();
     App(keyword);
-
-    setTimeout(() => {
-        const info = document.getElementById('info'),
-            emptyspace = document.getElementById('emptyspace');
-        info.classList.add('show');
-        emptyspace.classList.add('hide');
-    }, 1200);
 });
 
 window.addEventListener('keyup', e => {
