@@ -72,8 +72,8 @@ export default function App(pokemon) {
             //base stats
             function progressBar(valor, number, total) {
                 number.innerText = valor;
-                //120 is the highest number points a pokemon can have as a base stat
-                total.style.width = `${(100 * valor) / 120}%`;
+                //255 is the highest number points a pokemon can have as a stat (as far as i know)
+                total.style.width = `${(100 * valor) / 255}%`;
             }
 
             progressBar(r.stats[0].base_stat, healthNumber, healthBar);
