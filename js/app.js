@@ -49,7 +49,7 @@ export default function App(pokemon) {
 
             //reset
             function resetChildren(e) { e.innerHTML = '' };
-            [types, skillList, movesList].forEach(resetChildren);
+            [types, skillList, movesList, localList].forEach(resetChildren);
 
             function capitalize(str) {
                 return str.charAt(0).toUpperCase() + str.slice(1);
