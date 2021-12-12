@@ -33,7 +33,7 @@ export default function Randomize() {
                     App(each.querySelector('img').alt);
                     [document.getElementById('aside'), document.getElementById('menu')].forEach(e => e.classList.remove('ativo'))
                 })
-            })
+            });
         }
     }, 1200);
 }

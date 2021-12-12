@@ -18,16 +18,18 @@ menu.addEventListener('click', () => {
 
 random.addEventListener('click', Randomize);
 
-const info = document.getElementById('info'),
-    emptyspace = document.getElementById('emptyspace');
-
 const input = document.getElementById('input'),
     search = document.getElementById('search');
 search.addEventListener('click', () => {
-    let keyword = input.value;
-    info.classList.add('show');
-    emptyspace.classList.add('hide');
+    let keyword = input.value.toLowerCase();
     App(keyword);
+
+    setTimeout(() => {
+        const info = document.getElementById('info'),
+            emptyspace = document.getElementById('emptyspace');
+        info.classList.add('show');
+        emptyspace.classList.add('hide');
+    }, 1200);
 });
 
 window.addEventListener('keyup', e => {

@@ -1,4 +1,7 @@
 export default function App(pokemon) {
+    const loader = document.getElementById('loader');
+    loader.classList.add('show');
+
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`).then(r => r.json())
         .then(r => {
             //images
@@ -24,7 +27,6 @@ export default function App(pokemon) {
                 skillList = document.getElementById('skill-list'),
                 movesList = document.getElementById('moves-list');
 
-
             //reset
             function resetChildren(e) { e.innerHTML = '' };
             [types, skillList, movesList].forEach(resetChildren);
@@ -35,8 +37,12 @@ export default function App(pokemon) {
 
             //fotos, tipos e nome
             front.src = r.sprites.front_default;
-            back.src = r.sprites.back_default;
-            r.sprites.back_default ? back.src = r.sprites.back_default : back.style.display = 'none';
+            if (r.sprites.back_default) {
+                back.src = r.sprites.back_default;
+            } else {
+                back.style.display = 'none';
+                front.parentElement.style.justifyContent = 'center';
+            }
 
             name.innerText = capitalize(r.name);
 
@@ -114,5 +120,8 @@ export default function App(pokemon) {
 
                 } else { break }
             }
+        })
+        .then(() => {
+            setTimeout(() => loader.classList.remove('show'), 1800);
         })
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,22 @@
     <link rel="stylesheet" href="css/style.min.css">
     <title>PokéFacts</title>
 </head>
+
 <body>
+    <div id="loader">
+        <div class="box">
+            <div class="plane"></div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <button id="logo"><img src="logo.png" alt="Logotipo escrito Pokéfacts"></button>
             <div>
                 <button id="theme"><span>Dark Mode</span></button>
-                <button id="menu"><div></div></button>
+                <button id="menu">
+                    <div></div>
+                </button>
             </div>
         </div>
     </header>
@@ -28,8 +38,10 @@
                 </div>
 
                 <div id="emptyspace">
-                    <i class="far fa-grin-wink"></i>
-                    <p>Nada por aqui ainda! Pesquise algum Pokémon!</p>
+                    <div>
+                        <i class="far fa-grin-wink"></i>
+                        <p>Nada por aqui ainda! Pesquise algum Pokémon!</p>
+                    </div>
                 </div>
 
                 <div id="info">
@@ -127,4 +139,5 @@
     </article>
 </body>
 <script src="js/script.js" type="module"></script>
+
 </html>

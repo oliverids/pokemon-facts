@@ -13,17 +13,19 @@ article {
             position: relative;
 
             #emptyspace {
-                position: fixed;
-                width: 320px;
-                left: 50%;
-                transform: translateX(-50%);
-                text-align: center;
-                color: var(--texto);
-                opacity: .4;
+                max-width: 660px;
 
-                i {
-                    font-size: 3rem;
-                    margin: 0 auto 1rem auto;
+                div {
+                    width: 320px;
+                    margin: 0 auto;
+                    text-align: center;
+                    color: var(--texto);
+                    opacity: 0.4;
+
+                    i {
+                        font-size: 3rem;
+                        margin: 0 auto 1rem auto;
+                    }
                 }
 
                 &.hide {
@@ -77,12 +79,14 @@ article {
             #info {
                 visibility: hidden;
                 overflow-y: hidden;
+                height: 100px;
                 opacity: 0;
                 transition: all 0.3s ease-in-out;
 
                 &.show {
                     visibility: visible;
                     overflow-y: visible;
+                    height: auto;
                     opacity: 1;
                     transition: all 0.3s ease-in-out;
                 }
