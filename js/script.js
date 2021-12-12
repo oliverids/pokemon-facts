@@ -1,6 +1,7 @@
 import App from './app.js';
 import Randomize from './randomize.js';
 Randomize();
+App('perrserker');
 
 const theme = document.getElementById('theme');
 theme.addEventListener('click', () => {

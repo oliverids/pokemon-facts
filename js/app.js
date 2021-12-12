@@ -6,6 +6,10 @@ export default function App(pokemon) {
         info = document.getElementById('info'),
         emptyspace = document.getElementById('emptyspace');
 
+    //skills and moves
+    let skillList = document.getElementById('skill-list'),
+        movesList = document.getElementById('moves-list');
+
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
         .then(r => {
             if (!r.ok) {
@@ -38,10 +42,7 @@ export default function App(pokemon) {
                 spdefenseNumber = document.getElementById('spdefense-number'),
                 spdefenseBar = document.getElementById('spdefense'),
                 speedNumber = document.getElementById('speed-number'),
-                speedBar = document.getElementById('speed'),
-                //skills and moves
-                skillList = document.getElementById('skill-list'),
-                movesList = document.getElementById('moves-list');
+                speedBar = document.getElementById('speed');
 
             //reset
             function resetChildren(e) { e.innerHTML = '' };
@@ -84,56 +85,55 @@ export default function App(pokemon) {
             //skills list
             for (let i = 0; i < 2; i++) {
                 if (i !== r.abilities.length) {
-                    let item = document.createElement('li'),
-                        titulo = document.createElement('h2'),
-                        efeito = document.createElement('p'),
-                        shortEfeito = document.createElement('p');
-
+                    let titulo = document.createElement('h2');
                     titulo.innerText = r.abilities[i].ability.name.replace('-', ' ').split(' ').map(capitalize).join(' ');
 
                     fetch(r.abilities[i].ability.url).then(r => r.json())
                         .then(r => {
-                            efeito.innerText = r.effect_entries[1].effect.replace(/(?:\r\n|\r|\n)/g, ' ');
+                            let item = document.createElement('li'),
+                                efeito = document.createElement('p'),
+                                shortEfeito = document.createElement('p');
+
+                            efeito.innerText = r.effect_entries[1].effect.replace(/(?:\r\n|\r|\n)/g, ' ').replace('$effect_chance%', 'effect chance');
                             shortEfeito.innerText = capitalize(r.effect_entries[1].short_effect)
+
+                            function append(e) {
+                                item.append(e)
+                            }
+
+                            [titulo, efeito, shortEfeito].forEach(append);
+                            skillList.appendChild(item);
                         });
-
-                    function append(e) {
-                        item.append(e)
-                    }
-
-                    [titulo, efeito, shortEfeito].forEach(append);
-                    skillList.appendChild(item);
                 } else { break }
             }
 
             //moves list
             for (let i = 0; i < 4; i++) {
                 if (i !== r.moves.length) {
-                    let item = document.createElement('li'),
-                        titulo = document.createElement('h2'),
-                        move = document.createElement('p'),
-                        shortmove = document.createElement('p'),
-                        accuracy = document.createElement('h3'),
-                        damage = document.createElement('h3');
-
+                    let titulo = document.createElement('h2');
                     titulo.innerText = r.moves[i].move.name.split(' ').map(capitalize).join(' ');
 
                     fetch(r.moves[i].move.url).then(r => r.json())
                         .then(r => {
-                            move.innerText = r.effect_entries[0].effect.replace(/(?:\r\n|\r|\n)/g, ' ');
-                            shortmove.innerText = capitalize(r.effect_entries[0].short_effect);
+                            let item = document.createElement('li'),
+                                move = document.createElement('p'),
+                                shortmove = document.createElement('p'),
+                                accuracy = document.createElement('h3'),
+                                damage = document.createElement('h3');
+
+                            move.innerText = r.effect_entries[0].effect.replace(/(?:\r\n|\r|\n)/g, ' ').replace('$effect_chance%', 'effect chance');;
+                            shortmove.innerText = capitalize(r.effect_entries[0].short_effect).replace('$effect_chance%', 'effect chance');;
 
                             accuracy.innerText = `Accuracy: ${r.accuracy}`;
                             damage.innerText = `Damage Class: ${capitalize(r.damage_class.name)}`;
+
+                            function append(e) {
+                                item.append(e)
+                            }
+
+                            [titulo, move, shortmove, accuracy, damage].forEach(append)
+                            movesList.appendChild(item)
                         });
-
-                    function append(e) {
-                        item.append(e)
-                    }
-
-                    [titulo, move, shortmove, accuracy, damage].forEach(append)
-                    movesList.appendChild(item)
-
                 } else { break }
             }
         })
@@ -142,6 +142,10 @@ export default function App(pokemon) {
             setTimeout(() => {
                 info.classList.add('show');
                 emptyspace.classList.add('hide');
+
+                [movesList, skillList].forEach(e => {
+                    if (e.childElementCount == 0) e.parentElement.parentElement.style.display = 'none';
+                })
             }, 1200);
         })
 }
