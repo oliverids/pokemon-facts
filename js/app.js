@@ -8,8 +8,10 @@ export default function App(pokemon) {
 
     //skills and moves
     let skillList = document.getElementById('skill-list'),
-        movesList = document.getElementById('moves-list');
-
+        movesList = document.getElementById('moves-list'),
+        //local list
+        localList = document.getElementById('locallist');
+        
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
         .then(r => {
             if (!r.ok) {
@@ -42,10 +44,7 @@ export default function App(pokemon) {
                 spdefenseNumber = document.getElementById('spdefense-number'),
                 spdefenseBar = document.getElementById('spdefense'),
                 speedNumber = document.getElementById('speed-number'),
-                speedBar = document.getElementById('speed'),
-                //local list
-                localList = document.getElementById('locallist');
-
+                speedBar = document.getElementById('speed');
 
             //reset
             function resetChildren(e) { e.innerHTML = '' };
@@ -177,7 +176,7 @@ export default function App(pokemon) {
                 info.classList.add('show');
                 emptyspace.classList.add('hide');
 
-                [movesList, skillList].forEach(e => {
+                [movesList, skillList, localList].forEach(e => {
                     if (e.childElementCount == 0) e.parentElement.parentElement.style.display = 'none';
                 })
             }, 1200);
