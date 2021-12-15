@@ -20,14 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 })
 
-const menu = document.getElementById('menu'),
-    aside = document.getElementById('aside'),
-    random = document.getElementById('random');
-
-menu.addEventListener('click', () => {
-    [menu, aside].forEach(e => e.classList.toggle('ativo'));
-});
-
+const random = document.getElementById('random');
 random.addEventListener('click', Randomize);
 
 const input = document.getElementById('input'),

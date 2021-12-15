@@ -23,9 +23,6 @@
             <button id="logo"><img src="logo.png" alt="Logotipo escrito Pokéfacts"></button>
             <div>
                 <button id="theme"><span>Dark Mode</span></button>
-                <button id="menu">
-                    <div></div>
-                </button>
             </div>
         </div>
     </header>
@@ -33,9 +30,17 @@
     <article>
         <div class="container">
             <section class="main">
-                <div class="searchbar">
-                    <input type="text" id="input" placeholder="Search for a Pokémon!">
-                    <button id="search"><span>search</span></button>
+                <div class="inicio">
+                    <div class="searchbar">
+                        <input type="text" id="input" placeholder="Search for a Pokémon!">
+                        <button id="search"><span>search</span></button>
+                    </div>
+                    <div id="aside">
+                        <div>
+                            <button id="random"><span>Randomize</span></button>
+                            <ul id="randomlist"></ul>
+                        </div>
+                    </div>
                 </div>
 
                 <p id="erro">Sorry, we couldn't find anything. Please check for spelling errors.</p>
@@ -140,11 +145,6 @@
                     </div>
                 </div>
             </section>
-
-            <aside id="aside">
-                <button id="random">Randomize</button>
-                <ul id="randomlist"></ul>
-            </aside>
         </div>
     </article>
 </body>

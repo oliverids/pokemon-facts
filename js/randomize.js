@@ -17,12 +17,12 @@ export default function Randomize() {
             })
     }
 
-    for (let i = 1; i < 11; i++) {
+    for (let i = 1; i < 5; i++) {
         getRandomNumber(1, 900);
     }
 
     setTimeout(() => {
-        if (randomlist.childElementCount !== 10) {
+        if (randomlist.childElementCount !== 4) {
             randomlist.innerHTML = '';
             getRandomNumber(1, 900);
         } else {
@@ -31,9 +31,8 @@ export default function Randomize() {
             randomPokemons.forEach(each => {
                 each.addEventListener('click', e => {
                     App(each.querySelector('img').alt);
-                    [document.getElementById('aside'), document.getElementById('menu')].forEach(e => e.classList.remove('ativo'))
                 })
             });
         }
-    }, 1200);
+    }, 2500);
 }
