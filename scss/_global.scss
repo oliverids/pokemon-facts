@@ -51,19 +51,6 @@ body {
     color: var(--texto);
     transition: background-color 0.3s ease-in-out;
 
-    &::-webkit-scrollbar {
-        width: 15px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, 0.2);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: var(--body);
-        border: 1px solid rgba(0, 0, 0, 0.2);
-    }
-
     &.escuro * {
         transition: background-color 0.3s ease-in-out;
     }
