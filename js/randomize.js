@@ -34,5 +34,5 @@ export default function Randomize() {
                 })
             });
         }
-    }, 2500);
+    }, 1800);
 }

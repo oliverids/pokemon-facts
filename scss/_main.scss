@@ -4,10 +4,6 @@ article {
     .container {
         flex-direction: column;
 
-        // @media only screen and (min-width: 768px) {
-        //     flex-direction: row;
-        // }
-
         .main {
             width: 100%;
             position: relative;
@@ -208,7 +204,7 @@ article {
 
                     @media only screen and (min-width: 768px) {
                         flex-direction: row;
-                        justify-content: space-between;
+                        justify-content: space-around;
                     }
 
                     img {
@@ -239,10 +235,11 @@ article {
                     @media only screen and (min-width: 768px) {
                         flex-direction: row;
                         justify-content: space-between;
+                        max-width: 575px;
 
                         .nome,
                         .type {
-                            width: 300px;
+                            max-width: 300px;
                         }
                     }
 
