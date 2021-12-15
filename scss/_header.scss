@@ -17,50 +17,29 @@ header {
         max-width: 100px;
     }
 
-    div {
-        display: flex;
-        align-items: center;
+    #theme {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        padding: 8px;
+        position: relative;
+        background: #fff;
 
-        #theme {
-            width: 44px;
-            height: 44px;
-            padding: 8px;
-            position: relative;
-            border-radius: 4px;
-            filter: drop-shadow(0 0 4px rgba(0, 0, 0, .15));
+        &::before {
+            @extend %fontAwesome;
+            content: "\f186";
+            display: block;
+            font-size: 1.6rem;
+            color: var(--header);
+        }
 
-            &::before {
-                @extend %fontAwesome;
-                content: "\f186";
-                display: block;
-                font-size: 1.6rem;
-                color: var(--btnheader);
-            }
+        span {
+            position: absolute;
+            left: -99999px;
+        }
 
-            @media only screen and (min-width: 1100px) {
-                display: flex;
-                align-items: center;
-                width: 150px;
-                font-size: 1.2rem;
-                font-family: $roboto;
-                font-weight: 700;
-            }
-
-            span {
-                position: absolute;
-                left: -99999px;
-                color: var(--btnheader);
-
-                @media only screen and (min-width: 1100px) {
-                    margin-left: 12px;
-                    margin-top: 3px;
-                    position: static;
-                }
-            }
-
-            &.ativo {
-                box-shadow: inset 0 -35px 11px rgba(0, 0, 0, 0.15);
-            }
+        &.ativo::before {
+            content: "\f185";
         }
     }
 }
