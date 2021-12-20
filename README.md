@@ -34,12 +34,17 @@ O usuário pode:
 #### Interface
 
 <p align="center">
+<img src="Screenshot_1.png"/>
+</p>
+
+<p align="center">
 <img src="Screenshot_2.png"/>
 </p>
 
 <p align="center">
-<img src="Screenshot_1.png"/>
+<img src="Screenshot_3.png"/>
 </p>
+<br>
 
 #### Links
 
