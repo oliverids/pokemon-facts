@@ -23,7 +23,7 @@ article {
                         background: none;
                         border: none;
                         font-size: 1rem;
-                        font-family: $roboto;
+                        font-family: $poppins;
                         width: calc(100% - 48px);
                         align-self: stretch;
                         padding-left: 12px;
@@ -142,7 +142,7 @@ article {
                 transition: all 0.3s ease-in-out;
 
                 &.ativo {
-                    margin-top: -20px;
+                    margin-top: 16px;
                     visibility: visible;
                     opacity: 1;
                     transition: all 0.3s ease-in-out;
@@ -178,6 +178,10 @@ article {
                 border-top: 2px solid var(--sombra);
                 padding-top: 2rem;
 
+                p {
+                    font-family: $roboto;
+                }
+
                 &.show {
                     visibility: visible;
                     overflow-y: visible;
@@ -195,6 +199,7 @@ article {
 
                 .spantitle {
                     display: block;
+                    font-weight: 600;
                     font-size: 0.9rem;
                     margin-bottom: 0.8rem;
                 }
@@ -306,7 +311,7 @@ article {
                     max-width: 575px;
 
                     li {
-                        margin-bottom: 2rem;
+                        margin-bottom: 2.4rem;
 
                         &:last-child {
                             margin-bottom: 0;
