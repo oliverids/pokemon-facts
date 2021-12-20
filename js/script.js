@@ -20,6 +20,19 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 })
 
+const footer = document.querySelector('footer'),
+    backtop = document.getElementById('backtop');
+
+window.addEventListener('scroll', () => {
+    let topo = document.getElementById('info').getBoundingClientRect().top;
+    topo < -100 ? footer.classList.add('show') : footer.classList.remove('show');
+})
+
+backtop.addEventListener('click', () => {
+    let topo = document.getElementById('info').getBoundingClientRect().top - 100;
+    window.scrollTo({top: topo, behavior: "smooth"});
+})
+
 const random = document.getElementById('random');
 random.addEventListener('click', Randomize);
 
@@ -33,3 +46,4 @@ search.addEventListener('click', () => {
 window.addEventListener('keyup', e => {
     if (e.keyCode == 13) search.click();
 });
+

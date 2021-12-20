@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Roboto&display=swap");
 @import "tema";
 
 $roboto: "Roboto", sans-serif;
@@ -95,5 +95,63 @@ h3 {
 
     &:last-child {
         margin-bottom: 0;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    background: $red;
+    color: rgb(220, 220, 220);
+    transform: translateY(80px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+
+    &.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .container {
+        position: relative;
+        
+        p {
+            text-align: center;
+            font-size: 14px;
+            margin: 0 auto;
+    
+            a {
+                color: rgb(220, 220, 220);
+                font-weight: 600;
+                text-decoration: underline;
+            }
+        }
+    
+        #backtop {
+            position: fixed;
+            bottom: 82px;
+            right: 16px;
+            padding: 12px;
+            background: #fbde6e;
+            border-radius: 6px;
+            box-shadow: 0 0 4px var(--sombra);
+    
+            &::before {
+                @extend %fontAwesome;
+                content: "\f077";
+                font-size: 1.2rem;
+                color: #010a11;
+            }
+    
+            span {
+                position: absolute;
+                left: -999999px;
+            }
+        }
     }
 }
