@@ -176,6 +176,9 @@ export default function App(pokemon) {
                 info.classList.add('show');
                 emptyspace.classList.add('hide');
 
+                let topo = info.getBoundingClientRect().top - 100;
+                window.scrollTo({top: topo, behavior: "smooth"});
+
                 [movesList, skillList, localList].forEach(e => {
                     if (e.childElementCount == 0) e.parentElement.parentElement.style.display = 'none';
                 })

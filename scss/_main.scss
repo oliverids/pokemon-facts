@@ -71,21 +71,6 @@ article {
                             margin-top: -28px;
                         }
 
-                        &:hover::before {
-                            animation: rotaciona 1s ease-in-out;
-                        }
-
-                        @keyframes rotaciona {
-                            from {
-                                transform: rotate(0);
-                            }
-
-                            to {
-                                transform: rotate(359deg);
-
-                            }
-                        }
-
                         &::before {
                             @extend %fontAwesome;
                             content: "\f2f1";
@@ -123,6 +108,11 @@ article {
                                 max-height: 200px;
                                 box-shadow: 0 0 2px var(--sombra);
                                 margin-right: 1.2rem;
+
+                                @media only screen and (min-width: 1100px) {
+                                    width: 200px;
+                                    height: 200px;
+                                }
 
                                 &:last-child {
                                     margin-right: 1rem;
