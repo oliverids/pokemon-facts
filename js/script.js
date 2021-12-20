@@ -41,6 +41,11 @@ const input = document.getElementById('input'),
 search.addEventListener('click', () => {
     let keyword = input.value;
     if (keyword) App(keyword.toLowerCase());
+
+    setTimeout(() => {
+        input.value = '';
+        input.blur();
+    }, 1200);
 });
 
 window.addEventListener('keyup', e => {

@@ -35,4 +35,10 @@ export default function Randomize() {
             });
         }
     }, 1800);
+
+    setTimeout(() => {
+        let input = document.getElementById('input');
+        input.value = '';
+        input.blur();
+    }, 1200);
 }
