@@ -11,7 +11,12 @@
     --searchbar: #ffeeaf;
 
     //info
-    --sombra: rgba(0, 0, 0, .2);
+    --sombra: rgba(0, 0, 0, 0.2);
+
+    //main
+    --fallback: rgb(255,203,5);
+    --gradiente: radial-gradient(circle, #ff7f4f -15%, #f8e396 93%);
+    --maintexto: #1e1800;
 }
 
 .escuro {
@@ -27,5 +32,10 @@
     --searchbar: #fbde6e;
 
     //info
-    --sombra: rgba(255, 255, 255, .2);
+    --sombra: rgba(255, 255, 255, 0.2);
+
+    //main
+    --fallback: #3D7DCA;
+    --gradiente: radial-gradient(circle, #003A70 -15%, #3D7DCA 93%);
+    --maintexto: #eaf4fc;
 }

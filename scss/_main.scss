@@ -1,5 +1,35 @@
+main {
+    padding: 150px 0 100px 0;
+    background: var(--fallback);
+    background: var(--gradiente);
+
+    @media only screen and (min-width: 1100px) {
+        padding: 180px 0 140px 0;
+    }
+
+    .container {
+        flex-direction: column;
+        color: var(--maintexto);
+
+        p {
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin: 1rem 0;
+        }
+
+        span a {
+            color: var(--maintexto);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    }
+}
+
 article {
-    padding-top: 110px;
+    margin-top: 4rem;
 
     .container {
         flex-direction: column;
@@ -17,7 +47,7 @@ article {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    margin-bottom: 1rem;
+                    margin-bottom: 2.4rem;
 
                     input {
                         background: none;
@@ -144,7 +174,7 @@ article {
 
                 &.ativo {
                     height: auto;
-                    margin-top: 16px;
+                    margin-top: -20px;
                     visibility: visible;
                     opacity: 1;
                     transition: all 0.3s ease-in-out;

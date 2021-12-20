@@ -56,7 +56,10 @@ export default function App(pokemon) {
 
             //fotos, tipos e nome
             front.src = r.sprites.front_default;
+
             if (r.sprites.back_default) {
+                back.style.display = 'flex';
+                front.parentElement.style.justifyContent = 'space-around';
                 back.src = r.sprites.back_default;
             } else {
                 back.style.display = 'none';
@@ -177,7 +180,7 @@ export default function App(pokemon) {
                 emptyspace.classList.add('hide');
 
                 let topo = info.getBoundingClientRect().top - 100;
-                window.scrollTo({top: topo, behavior: "smooth"});
+                if(topo > 500) window.scrollTo({top: topo, behavior: "smooth"});
 
                 [movesList, skillList, localList].forEach(e => {
                     if (e.childElementCount == 0) e.parentElement.parentElement.style.display = 'none';
